@@ -1,7 +1,8 @@
 torch>=2.0.0
-numpy>=1.24.0
+numpy>=1.21.0,<1.24.0
 gym>=0.26.0
-unityagents>=0.4.0
+mlagents>=1.0.0
+mlagents-envs>=1.0.0
 opencv-python>=4.8.0
 pillow>=10.0.0
 matplotlib>=3.7.0

@@ -31,6 +31,7 @@ class UnityConfig:
     headless_mode: bool = True
     timeout: int = 300
     max_memory_mb: int = 2048
+    max_episode_steps: int = 10000
 
 
 @dataclass
