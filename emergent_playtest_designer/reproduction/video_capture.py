@@ -1,11 +1,26 @@
 """Video capture for exploit reproduction."""
 
 import os
-import cv2
-import numpy as np
-from typing import List, Optional, Tuple
+from typing import List, Optional, Tuple, Dict, Any
 from loguru import logger
 from ..core.types import GameState, ActionSequence
+
+# Optional imports with fallbacks
+try:
+    import cv2
+    HAS_OPENCV = True
+except ImportError:
+    cv2 = None
+    HAS_OPENCV = False
+    logger.warning("OpenCV not available. Video capture will use mock implementation.")
+
+try:
+    import numpy as np
+    HAS_NUMPY = True
+except ImportError:
+    np = None
+    HAS_NUMPY = False
+    logger.warning("NumPy not available. Some video features will be limited.")
 
 
 class VideoCapture:
@@ -18,11 +33,19 @@ class VideoCapture:
         self.resolution = config.get("resolution", (1920, 1080))
         self.codec = config.get("codec", "mp4v")
         self.quality = config.get("quality", 90)
+        self.mock_mode = not HAS_OPENCV
+        
+        if self.mock_mode:
+            logger.info("Video capture initialized in mock mode (OpenCV not available)")
         
     def capture_exploit_video(self, action_sequence: ActionSequence, 
                             game_states: List[GameState], output_path: str) -> None:
         """Capture video of exploit reproduction."""
         logger.info(f"Capturing video: {output_path}")
+        
+        if self.mock_mode:
+            self._mock_capture_video(action_sequence, game_states, output_path)
+            return
         
         fourcc = cv2.VideoWriter_fourcc(*self.codec)
         video_writer = cv2.VideoWriter(

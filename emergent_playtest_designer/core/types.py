@@ -180,6 +180,33 @@ class TestingSession:
 
 
 @dataclass
+class ReproductionData:
+    """Data needed to reproduce an exploit."""
+    exploit_id: str
+    action_sequence: ActionSequence
+    reproduction_steps: List[str]
+    metadata: Dict[str, Any]
+    video_path: Optional[str] = None
+    screenshots: List[str] = None
+    
+    def __post_init__(self):
+        """Initialize default values."""
+        if self.screenshots is None:
+            self.screenshots = []
+    
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert to dictionary for serialization."""
+        return {
+            "exploit_id": self.exploit_id,
+            "action_sequence": self.action_sequence.to_dict(),
+            "reproduction_steps": self.reproduction_steps,
+            "metadata": self.metadata,
+            "video_path": self.video_path,
+            "screenshots": self.screenshots,
+        }
+
+
+@dataclass
 class AgentConfig:
     """Configuration for AI agents."""
     agent_type: str

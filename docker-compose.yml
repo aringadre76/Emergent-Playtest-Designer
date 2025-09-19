@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  playtest-designer:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    command: ["python", "cli_simple.py", "server", "--host", "0.0.0.0", "--port", "8000"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Optional: Add Redis for caching (if needed later)
+  # redis:
+  #   image: redis:7-alpine
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis_data:/data
+  #   restart: unless-stopped
+
+# volumes:
+#   redis_data:

@@ -1,0 +1,78 @@
+# Docker ignore file for Emergent Playtest Designer
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+*.md
+docs/
+
+# Tests
+tests/
+test_*.py
+*_test.py
+
+# Logs
+logs/
+*.log
+
+# Data files
+data/
+*.db
+*.sqlite
+
+# Heavy dependencies (not needed for mock version)
+requirements.txt
+requirements-full.txt
+
+# Unity files (not needed for mock version)
+*.unity
+*.unitypackage
+Assets/
+ProjectSettings/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
