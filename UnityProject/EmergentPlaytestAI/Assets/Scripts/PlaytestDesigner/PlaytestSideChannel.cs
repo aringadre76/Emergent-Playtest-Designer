@@ -28,7 +28,7 @@ public class PlaytestSideChannel : SideChannel
         ChannelId = new System.Guid("621f0a70-4f87-11ea-a6bf-784f4387d1f7");
     }
 
-    void Start()
+    public void Initialize()
     {
         playtestManager = GameObject.FindAnyObjectByType<PlaytestManager>();
         
@@ -36,7 +36,7 @@ public class PlaytestSideChannel : SideChannel
             Debug.Log("PlaytestSideChannel initialized");
     }
 
-    void Update()
+    public void UpdatePerformanceTracking()
     {
         // Track performance metrics
         if (enablePerformanceReporting)
@@ -184,7 +184,8 @@ public class PlaytestSideChannel : SideChannel
     private float GetMemoryUsage()
     {
         // Unity memory usage in MB
-        return UnityEngine.Profiling.Profiler.GetTotalAllocatedMemory(UnityEngine.Profiling.Profiler.Area.All) / (1024f * 1024f);
+        // Simple memory approximation for Unity 6.x compatibility
+        return UnityEngine.Profiling.Profiler.usedHeapSizeLong / (1024f * 1024f);
     }
 
     private float GetCPUUsage()
@@ -198,7 +199,8 @@ public class PlaytestSideChannel : SideChannel
     {
         if (playtestManager != null)
         {
-            playtestManager.ConfigureFromParameters(parameters);
+            // Configure PlaytestManager with basic parameters
+            playtestManager.SetDebugMode(parameters.enableLogging);
         }
         
         // Configure performance reporting

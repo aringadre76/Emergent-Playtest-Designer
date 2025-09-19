@@ -49,7 +49,12 @@ public class PlaytestAgent : Agent
         if (rb == null)
             rb = gameObject.AddComponent<Rigidbody>();
             
-        sideChannel = GameObject.FindAnyObjectByType<PlaytestSideChannel>();
+        // Find the side channel through its wrapper
+        var sideChannelWrapper = GameObject.FindAnyObjectByType<PlaytestSideChannelWrapper>();
+        if (sideChannelWrapper != null)
+        {
+            sideChannel = sideChannelWrapper.GetSideChannel();
+        }
         playtestManager = GameObject.FindAnyObjectByType<PlaytestManager>();
         
         if (exploitDetector == null)
