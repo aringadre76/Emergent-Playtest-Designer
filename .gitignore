@@ -2,6 +2,11 @@
 # Unity .gitignore
 # ===========================================
 
+# Unity Build Output
+build/
+Build/
+Builds/
+
 # Unity generated files
 [Ll]ibrary/
 [Tt]emp/
