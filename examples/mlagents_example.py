@@ -10,7 +10,7 @@ from emergent_playtest_designer.core.config import UnityConfig
 def main():
     # Configure Unity environment
     config = UnityConfig(
-        executable_path="./build/YourGame",  # Update this path
+        executable_path="./build/EmergentPlaytestAI",  # Path to your built Unity executable
         project_path="",  # Not needed for built games
         headless_mode=True,
         max_episode_steps=5000
