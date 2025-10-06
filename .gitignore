@@ -1,0 +1,60 @@
+# Unity
+UnityProject/
+*.unity
+*.meta
+*.asset
+*.prefab
+*.mat
+*.anim
+*.controller
+*.cs.meta
+*.shader
+*.compute
+*.hlsl
+*.cginc
+*.asmdef
+*.asmdef.meta
+
+# Unity Library
+Library/
+Logs/
+Temp/
+obj/
+Build/
+Builds/
+
+# Unity Cache
+*.tmp
+*.cache
+*.lock
+*.pid
+*.seed
+*.pid.lock
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
