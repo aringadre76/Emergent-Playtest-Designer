@@ -1,0 +1,12 @@
+mss>=9.0.1
+opencv-python>=4.8.0
+pydirectinput>=1.0.4
+pyautogui>=0.9.54
+pynput>=1.7.6
+psutil>=5.9.0
+pytesseract>=0.3.10
+scikit-image>=0.22.0
+imagehash>=4.3.1
+numpy>=1.24.0
+Pillow>=10.0.0
+

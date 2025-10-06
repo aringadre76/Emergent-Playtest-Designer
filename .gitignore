@@ -1,60 +1,40 @@
-# Unity
-UnityProject/
-*.unity
-*.meta
-*.asset
-*.prefab
-*.mat
-*.anim
-*.controller
-*.cs.meta
-*.shader
-*.compute
-*.hlsl
-*.cginc
-*.asmdef
-*.asmdef.meta
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Unity Library
-Library/
-Logs/
-Temp/
-obj/
-Build/
-Builds/
+repro/
+*.mp4
+*.avi
 
-# Unity Cache
-*.tmp
-*.cache
-*.lock
-*.pid
-*.seed
-*.pid.lock
+.venv
+venv/
+ENV/
+env/
 
-# OS
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+.DS_Store
+Thumbs.db
